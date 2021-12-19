@@ -1,0 +1,14 @@
+#div_results {
+  /* display: inline; */
+  border: 3px solid;
+  background-color: aquamarine;
+  display: flex;
+  min-width: 700px;
+}
+#div_catgories {
+  /* display: inline; */
+  display: flex;
+}
+#div_main_board {
+  display: flex;
+}
