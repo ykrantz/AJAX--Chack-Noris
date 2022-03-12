@@ -10,7 +10,7 @@
 // 50: Side functions
 // 60: Validation Functions
 // +++++++++++++++++++++
-
+//
 // **********
 // Level 10: defining main variable and structre
 // **********
@@ -33,6 +33,11 @@ $select_catgories.addEventListener("click", jokes_from_kategory);
 $button_get_random_joke.addEventListener("click", get_raondom_joke_of_category);
 
 $text_search.addEventListener("input", search_from_input);
+
+let $li_search_result = document.createElement("li");
+$li_search_result.innerHTML = `Please choose a category to get random jokes`;
+$ul_results.append($li_search_result);
+
 // **********
 // Level 30: Primery Functions
 // **********
@@ -46,7 +51,7 @@ function create_kategory_div_list(arr_categories) {
 
   $select_catgories.size = arr_categories.length;
   $div_catgories.append($select_catgories);
-  // $div_catgories.style.direction = "flex";
+
   $select_catgories.selectedIndex = 0;
   pressed_category = $select_catgories.firstChild.innerHTML;
 }
@@ -113,15 +118,7 @@ async function search_for_jokes(text_to_search) {
       $ul_results.append($li_search_result);
     }
   }
-
-  // console.log("FF");
-  // console.log(data_parse_results);
-  // if (data_parse_results.length == 0) {
-  //   console.log("LLLsds");
 }
-
-// console.log(data_parse_results[0]);
-// console.log(data_parse.result[0]);
 
 async function get_categories_jokes() {
   let response = await fetch("https://api.chucknorris.io/jokes/categories");
@@ -134,6 +131,10 @@ async function get_categories_jokes() {
 }
 
 async function get_raondom_joke_of_category(flag_claen_results = true) {
+  // TODO: fix eror wehn pressing the fisrt time
+  if (pressed_category[0] === "<") {
+    pressed_category = $select_catgories[0].value;
+  }
   let response = await fetch(
     `https://api.chucknorris.io/jokes/random?category=${pressed_category}`
   );
@@ -144,7 +145,7 @@ async function get_raondom_joke_of_category(flag_claen_results = true) {
     clear_elements_from_div("ul_results");
   }
   let $result_random_joke = document.createElement("li");
-  // TODO:
+
   $result_random_joke.innerHTML = `<b>category:${pressed_category} </b> <br> ${data_parse.value}`;
   $ul_results.append($result_random_joke);
   // console.log(data_parse.value);

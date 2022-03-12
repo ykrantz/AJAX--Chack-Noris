@@ -1,14 +1,52 @@
+Body {
+  display: block;
+  /* background-color: aquamarine; */
+
+  /* background-image: url("./images/pocket-watch-3156771.jpg"); */
+  /* background-image: url("./images/pexels-riccardo-bertolo-4245826.jpg"); */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("./images/karate-4575114.png");
+
+  background-size: cover;
+  margin-left: 20px;
+}
+
 #div_results {
   /* display: inline; */
   border: 3px solid;
   background-color: aquamarine;
   display: flex;
   min-width: 700px;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-radius: 10px;
 }
 #div_catgories {
   /* display: inline; */
   display: flex;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 #div_main_board {
   display: flex;
+  /* margin-top: 20px; */
+}
+
+#text_search {
+  margin-left: 20px;
+  min-width: 200px;
+}
+
+#button_get_random_jok {
+  margin-left: 10px;
+  background-color: burlywood;
+  border-radius: 10px;
+}
+
+#headerTitle {
+  margin-left: 200px;
+  color: blue;
 }
